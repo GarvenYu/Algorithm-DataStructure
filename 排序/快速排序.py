@@ -4,14 +4,14 @@ import random
 
 
 def swap(data, randIndex, end):
-	"""交换元素"""
+    """交换元素"""
     tmp = data[randIndex]
     data[randIndex] = data[end]
     data[end] = tmp
 
 
 def partition(data, start, end, length):
-	"""将某个元素放到合适位置并对数组进行分割(左小右大)"""
+    """将某个元素放到合适位置并对数组进行分割(左小右大)"""
     if not data:
         return "Invalid Data"
     if not isinstance(start, int) or not isinstance(end, int) or not isinstance(length, int):
