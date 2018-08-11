@@ -19,10 +19,9 @@ class BinaryTreeNode(object):
 
 
 def buildBinaryTree(preOrder, inOrder):
-    root = BinaryTreeNode()  # 根节点
-    if len(inOrder) < 1:
-        return root
-    elif len(inOrder) >= 1:
+    if not inOrder or not preOrder:
+        return None
+    else:
         root._data = preOrder[0]
         root._left = buildBinaryTree(preOrder[1:inOrder.index(
             preOrder[0])+1], inOrder[:inOrder.index(preOrder[0])])

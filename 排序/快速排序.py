@@ -5,9 +5,7 @@ import random
 
 def swap(data, randIndex, end):
     """交换元素"""
-    tmp = data[randIndex]
-    data[randIndex] = data[end]
-    data[end] = tmp
+    data[randIndex], data[end] = data[end], data[randIndex]
 
 
 def partition(data, start, end, length):
