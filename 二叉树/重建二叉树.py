@@ -8,10 +8,10 @@
 
 class BinaryTreeNode(object):
 
-    def __init__(self, data=None):
+    def __init__(self, data=None, left=None, right=None):
         self._data = data
-        self._left = None
-        self._right = None
+        self._left = left
+        self._right = right
 
     def __repr__(self):
         return str(self._data) + '\nleft:' + \
@@ -22,6 +22,7 @@ def buildBinaryTree(preOrder, inOrder):
     if not inOrder or not preOrder:
         return None
     else:
+        root = BinaryTreeNode()
         root._data = preOrder[0]
         root._left = buildBinaryTree(preOrder[1:inOrder.index(
             preOrder[0])+1], inOrder[:inOrder.index(preOrder[0])])

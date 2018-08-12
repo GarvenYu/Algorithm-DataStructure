@@ -34,7 +34,7 @@ def merge_list(p_head_one, p_head_two):
             p_head_two = p_head_two.p_next
             p_new_head.p_next = merge_list(p_head_one, p_head_two)
         else:
-            """如果链表2的节点值大"""
+            """如果链表2的节点值大或者链表1已经遍历完"""
             p_new_head = p_head_one
             p_head_one = p_head_one.p_next
             p_new_head.p_next = merge_list(p_head_one, p_head_two)
