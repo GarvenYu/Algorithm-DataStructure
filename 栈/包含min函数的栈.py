@@ -31,7 +31,6 @@ class ArrayStack(AbstractStack):
 	def top_item(self):
 		return self.pop()
 
-	@classmethod
-	def pop_min_item(cls):
+	def pop_min_item(self):
 		"""输出栈内最小元素"""
-		return cls.AUX_STACK.top_item()
+		return self.AUX_STACK.top_item()
