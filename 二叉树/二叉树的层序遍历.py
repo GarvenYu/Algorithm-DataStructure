@@ -24,7 +24,7 @@ class ArrayQueue(object):
 def print_node(root_node):
     """输出node的值"""
     if not root_node.value:
-        return None
+        return
     else:
         print(root_node.value, end='')
 
