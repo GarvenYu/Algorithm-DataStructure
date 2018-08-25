@@ -9,13 +9,13 @@
 class BinaryTreeNode(object):
 
     def __init__(self, data=None, left=None, right=None):
-        self._data = data
-        self._left = left
-        self._right = right
+        self.value = data
+        self.left_node = left
+        self.right_node = right
 
     def __repr__(self):
-        return str(self._data) + '\nleft:' + \
-            str(self._left._data) + '\nright:' + str(self._right._data)
+        return str(self.value) + '\nleft:' + \
+            str(self.left_node.value) + '\nright:' + str(self.right_node.value)
 
 
 def buildBinaryTree(preOrder, inOrder):
@@ -23,19 +23,19 @@ def buildBinaryTree(preOrder, inOrder):
         return None
     else:
         root = BinaryTreeNode()
-        root._data = preOrder[0]
-        root._left = buildBinaryTree(preOrder[1:inOrder.index(
+        root.value = preOrder[0]
+        root.left_node = buildBinaryTree(preOrder[1:inOrder.index(
             preOrder[0])+1], inOrder[:inOrder.index(preOrder[0])])
-        root._right = buildBinaryTree(preOrder[inOrder.index(
+        root.right_node = buildBinaryTree(preOrder[inOrder.index(
             preOrder[0])+1:], inOrder[inOrder.index(preOrder[0])+1:])
         return root
 
 
 def postOrder(root):
-    if not root._data:
+    if not root.value:
         return []
     else:
-       return postOrder(root._left) + postOrder(root._right) + [root._data]
+       return postOrder(root.left_node) + postOrder(root.right_node) + [root.value]
 
 
 if __name__ == '__main__':
