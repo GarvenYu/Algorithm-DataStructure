@@ -1,13 +1,11 @@
 # Algorithm-DataStructure
 
----
-
-##题目来源
+## 题目来源
 
 - 《《剑指offer》》
 
 - LeetCode
 
-##Language
+## Language
 
 **Python**
