@@ -26,17 +26,36 @@ class MaxHeap(object):
     def build_max_heap(self):
         """构造最大堆
         """
-        pass
+        if not self._array:
+            return self._array
+        # 从最后一个非叶子节点开始，逐个下沉
+        for i in range(len(self)//2 - 1, -1, -1):
+            self.float_down(i)
 
     def float_up(self, index):
         """如果index位置的元素>父节点元素，那么上浮
         """
-        pass
+        while index > 0:
+            parent = (index - 1) // 2
+            if self._array[index] > self._array[parent]:
+                self.swap(index, parent)
+                index = parent
+            else:
+                break
 
     def float_down(self, index):
-        """如果index位置的元素<左或右孩子节点，那么下沉
+        """使堆中小的数沉下去，保证堆的一条根节点->叶子节点的路有序。
         """
-        pass
+        while index < len(self._array) // 2:  # index还处在父节点范围
+            left_child, right_child = 2 * i + 1, 2 * i + 2
+            # 左右孩子较大的节点
+            max_index = left_child  # 初始化为左节点,因为左节点一定存在
+            if right_child < len(self) and self._array[left_child] < self._array[right_child]:
+                # 如果右节点存在且右节点小
+                max_index = right_child
+            if self._array[index] < self._array[max_index]:
+                self.swap(index, max_index)
+            index = max_index
 
     def append(self, data):
         """向堆尾动态添加元素
