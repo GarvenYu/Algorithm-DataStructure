@@ -1,5 +1,5 @@
 #! usr/bin/env python
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 """
 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历序列，是则返回True，否则返回False，

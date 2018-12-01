@@ -34,6 +34,7 @@ def reverse_linked_list(p_head):
     p_curr.p_next = p_prev
     return p_curr
 
+
 if __name__ == '__main__':
     node4 = LinkedList(4)
     node3 = LinkedList(3, node4)
