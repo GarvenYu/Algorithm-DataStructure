@@ -1,5 +1,5 @@
 # usr/bin/env python
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 """
 题目：输入一个整数n，求1~n这n个整数的十进制表示中1出现的次数。
@@ -8,10 +8,10 @@
 
 
 def number1_times(n):
-	"""
-	每个数从个位开始统计,每次缩减1位。
-	如果每个数有O(logn)位,则复杂度为O(nlogn)
-	"""
+    """
+    每个数从个位开始统计,每次缩减1位。
+    如果每个数有O(logn)位,则复杂度为O(nlogn)
+    """
     times = 0
     for i in range(1, n + 1):
         while(i > 0):
@@ -19,5 +19,6 @@ def number1_times(n):
                 times += 1
             i = i // 10
     return times
+
 
 print(number1_times(12))
