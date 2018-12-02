@@ -25,7 +25,7 @@ def partition(data, start, end, length):
         if data[index] < data[end]:
             pivot += 1
             if pivot != index:
-            	# 把大元素换到后面
+                # 把大元素换到后面
                 swap(data, pivot, index)
     # 哨兵指向比随机元素大的元素
     pivot += 1
