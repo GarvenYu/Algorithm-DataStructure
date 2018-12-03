@@ -1,6 +1,6 @@
 # Algorithm-DataStructure
 
-## 题目来源
+## Source
 
 - 剑指offer
 
@@ -9,3 +9,7 @@
 ## Language
 
 **Python**
+
+## Version
+
+**Python 3.7**
