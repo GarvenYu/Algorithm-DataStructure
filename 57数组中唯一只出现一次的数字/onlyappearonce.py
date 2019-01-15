@@ -13,23 +13,23 @@ def only_appear_once_number(array):
     if not array:
         return None
     else:
-        bitsum_array = [0]*32
+        bitsum_array = [0] * 32
         for i in range(0, len(array)):
             # array中每个数字都遍历
             for j in range(31, -1, -1):
                 # 假设这个数字是int类型，共32位
                 if array[i] & 1:
                     # 末位为1
-                    bitsum_array[j]+= 1
+                    bitsum_array[j] += 1
                 # 右移1位
                 array[i] >>= 1
         result = 0
         # 遍历bitsum数组
         for bit in range(0, 32):
             result <<= 1
-            result += bitsum_array[bit] % 3            
+            result += bitsum_array[bit] % 3
         return result
 
 
-array = [1,1,1,2,2,2,5,6,6,6]
+array = [1, 1, 1, 2, 2, 2, 5, 6, 6, 6]
 print(only_appear_once_number(array))  # 5
