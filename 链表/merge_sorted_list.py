@@ -25,7 +25,7 @@ def merge_list(p_head_one: LinkedList, p_head_two: LinkedList) -> Optional[Linke
     """
     if p_head_one and p_head_two:
         p1, p2 = p_head_one, p_head_two
-        fake_node = LinkedList()
+        fake_node = LinkedList()  # 哨兵
         current = fake_node
         while p1 and p2:
             if p1.value <= p2.value:
