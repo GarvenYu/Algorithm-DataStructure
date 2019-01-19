@@ -1,5 +1,5 @@
 #! usr/bin/env python
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 """
 实现一个函数,复制一个复杂链表。在复杂链表中，每个节点除了有一个指向下一节点的指针，
@@ -23,6 +23,7 @@ class ComplexListNode(object):
             else:
                 print("value-%d,no sibling" % (self.value))
             self = self.p_next
+
 
 # 思路1
 
@@ -55,6 +56,7 @@ def clone_with_dict(p_head):
                 d[p_node].p_sibling = d[p_node.p_sibling]
             p_node = p_node.p_next
         return p_clone_head
+
 
 # 思路2
 
@@ -113,6 +115,7 @@ def clone(p_head):
         connect_sibling_nodes(p_head)
         # 重新链接N'各个节点形成复制链表
         return reconnect_nodes(p_head)
+
 
 if __name__ == '__main__':
     node3 = ComplexListNode(3)

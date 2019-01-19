@@ -126,7 +126,7 @@ class LinkedList(object):
                 return
             else:
                 currentNode = self._pHead
-                while index-1:
+                while index - 1:
                     currentNode = currentNode._pNext
                     index -= 1
                 print('index=%d,data=%d' % (index, currentNode._data))
@@ -150,8 +150,8 @@ def printLinkedListReverse(currentNode):
     '''
     if currentNode:
         if currentNode._pNext:
-            printLinkedListReverse(currentNode._pNext) # 压栈
-        print(str(currentNode._data)+'->', end='') # 出栈逻辑
+            printLinkedListReverse(currentNode._pNext)  # 压栈
+        print(str(currentNode._data) + '->', end='')  # 出栈逻辑
 
 
 if __name__ == '__main__':
