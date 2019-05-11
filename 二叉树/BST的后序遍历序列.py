@@ -10,43 +10,35 @@
 """
 
 
-def is_bst_post_order(post_order):
-    """
-    判断输入序列是否是BST的后序遍历序列
-    :param post_order 后序遍历序列
-    """
-    if not post_order:
+def is_bst_post_order(seq):
+    if not seq:
         return False
-    else:
-        return is_bst_post_order_core(post_order, len(post_order))
+    return is_bst_post_order_core(seq)
 
 
-def is_bst_post_order_core(post_order, length):
-    root = post_order[-1]  # 取根节点
-    small = 0  # 左子树指针
-    for i in range(0, length - 1):
-        if post_order[i] >= root:
-            break
-        small += 1
-    large = small  # 右子树指针起始位置
-    for j in range(large, length - 1):
-        if post_order[j] < root:
+def is_bst_post_order_core(seq):
+    if not seq:
+        return
+    length = len(seq)
+    root = seq[-1]
+    i = 0
+    while seq[i] < root:
+        i += 1
+    j = i
+    while j < length - 1:
+        if seq[j] < root:
             return False
-    left_sub = True
-    if small > 0:
-        # 判断左子树
-        left_sub = is_bst_post_order_core(post_order[:small], small)
-    right_sub = True
-    if large < length - 1:
-        # 判断右子树
-        right_sub = is_bst_post_order_core(
-            post_order[large:length], length - small - 1)
-    return left_sub and right_sub
+        j += 1
+    # 左子树
+    is_bst_post_order_core(seq[:i])
+    # 右子树
+    is_bst_post_order_core(seq[i:-1])
+    return True
 
 
 if __name__ == '__main__':
     post_order = [1, 2, 3, 4, 5]  # 没有右子树的BST
-    # post_order = [1,2,3,4,5].reverse()  # 没有左子树的BST
+    # [1,2,3,4,5].reverse()  # 没有左子树的BST
     # post_order = [5, 7, 6, 9, 11, 10, 8] # 正常情况
     # post_order = [1] # 单节点
     if is_bst_post_order(post_order):
