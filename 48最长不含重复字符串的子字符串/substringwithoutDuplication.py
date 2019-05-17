@@ -8,32 +8,28 @@
 """
 
 
-def substring_without_duplication(string):
-    if not string:
+def substring_without_duplication(case):
+    if not case:
         return 'Invalid Input!'
     else:
-        position = []
-        result = [0, '']  # 存储最终结果,result[0]=maxlength,result[1]=maxsubstring
-        for i in range(0, 26):
-            position.append(-1)  # 初始化位置数组，26个字母对应26个位置
-        for start in range(0, len(string)):
-            move = 0  # 记录移动步数
-            while (start + move < len(string)):
-                curword = string[start + move]
-                if (start + move) - position[ord(curword) - ord('a')] > move or move == 0:
-                    # 如果是新一轮的第一个字符或者当前字符上一次出现的位置不在本次遍历中
-                    if result[0] < move + 1:
-                        #  更新最长子字符串
-                        result[0] = move + 1
-                        result[1] = string[start:start + move + 1]
-                    # 更新当前字符最新出现的位置
-                    position[ord(string[start + move]) - ord('a')] = start + move
-                    move += 1
-                else:
-                    # 当前字符在当前子字符串中重复出现
-                    break
-        return result
+        c_length = 0
+        m_length = 0
+        position = {}
+        s_length = len(case)
+        for i in range(s_length):
+            prev_index = position.get(case[i], -1)
+            if prev_index == -1 or i - prev_index > c_length:
+                c_length += 1
+            else:
+                if c_length > m_length:
+                    m_length = c_length
+                c_length = i - prev_index
+            # update position
+            position[case[i]] = i
+        if c_length > m_length:
+            m_length = c_length
+        return m_length
 
 
-string = 'arabacfr'
-print(substring_without_duplication(string))
+testcase = 'arabcacfr'
+print(substring_without_duplication(testcase))  # 4
